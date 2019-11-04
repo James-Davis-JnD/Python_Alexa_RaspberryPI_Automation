@@ -5,7 +5,7 @@ This repo tutorial is how to use Alexa to trigger a Python Script on a remote Ra
 In an ideal scenario the 'motor' script can be set to be executed by a cron job to ensure feeding happens automatically at a defined time, daily. In an ideal scenario, Alexa, Ngrok, and Flask are uneeded. This example is to 'wow your friends' and show the possiblities of creativity and a 'can do' attitude.  
 
 ## Getting Started
-Make sure you have Python3.7 installed and working correctly. 
+Make sure you have the products below and a host computer for initial install and flash of Raspbian on the Raspberry Pi. 
 
 
 
@@ -64,10 +64,46 @@ I highly recommend using sudo raspi-config in order to change your password and 
 
 ## Install Python3, Packages, and Scripts
 
+To install Python3 and the required packages run the commands below.
 
+```bash
+ssh pi@raspberrypi.local
+pi@raspberrypi.local:~$ sudo apt-get install python3
+pi@raspberrypi.local:~$ python3 -m pip install flask_ask, cryptography==2.1.4
+```
+Create the Motor Directory and the Python Files
+
+```bash
+pi@raspberrypi.local:~$ cd ~
+pi@raspberrypi.local:~$ mkdir Motor
+pi@raspberrypi.local:~$ cd Motor
+pi@raspberrypi.local:~$ touch Flask_App_Feeder.py
+pi@raspberrypi.local:~$ touch Motor.py
+```
+Open the 'Flask_App_Feeder.py' by using 
+```bash
+pi@raspberrypi.local:~$ sudo nano Flask_App_Feeder.py
+```
+and insert the following Python Code
+
+```python
+import os
+```
+
+Open the 'Motor.py' by using 
+```bash
+pi@raspberrypi.local:~$ sudo nano Motor.py
+```
+and insert the following Python Code
+
+```python
+import os
+```
+Save and close both files.
 
 ## Ngrok
 
+## 
 
 
 
