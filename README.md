@@ -12,20 +12,64 @@ Make sure you have Python3.7 installed and working correctly.
 ### Products Used
 
 
+### High Level Steps:
+1. Boot Raspberry Pi with Raspbian 
+2. Install Python3 and packages
+3. Add Python Scripts  (Flask_Ask Script.py and Motor.py)
+4. Connect Motor, Battery Pack, and Hat to Pi (test the motor working by executing Motor.py)
+5. Download and Install Ngrok and Ngrok Account
+6. Create Amazon Dev Account
+7. Add Json and Ngrok EndPoint
+8. Test commands on Alexa or Amazon Developer Console 
 
+## 1. Raspberry Pi setup
 
-### Prerequisites
+*[Flash Raspbian to your RaspberryPi](https://www.raspberrypi.org/documentation/installation/installing-images) 
 
-### Steps:
+I operate on a Mac and followed the steps below outlined by the raspberry pi org. I used this method beacuse I wanted to install and run the Pi headless. 
 
+Download [balenaEtcher](https://www.balena.io/etcher) and install it.
+Connect an SD card reader with the SD card inside.
+Open balenaEtcher and select from your hard drive the Raspberry Pi .img or .zip file you wish to write to the SD card.
+Select the SD card you wish to write your image to.
+Review your selections and click 'Flash!' to begin writing data to the SD card.
 
-##Raspberry Pi setup
+(I would recommend using [NOOBS](https://www.raspberrypi.org/documentation/installation/noobs.md) if you have an extra monitor/HDMI cables, keyboard, and mouse.)
+
+Since running the Pi headless I needed to create two files. One to ssh into the Pi and the other to define the network WIFI connection.
+
+Unix Commands
+```bash
+jdavis@Mac:~$ touch /Volumes/boot/ssh
+jdavis@Mac:~$touch /Volumes/boot/wpa_supplicant.conf
+jdavis@Mac:~$sudo nano /Volumes/boot/wpa_supplicant.conf
+```
+Add Network Credentials to wpa_supplicant.conf
+
+```bash
+country=US
+network={
+    ssid="NETWORK-NAME"
+    psk="NETWORK-PASSWORD"
+}
+```
+
+Eject micro SD card, place in Pi, boot Pi.
+Confirm you can ssh into Pi with the following command.
+
+```bash
+ssh pi@raspberrypi.local
+```
+I highly recommend using sudo raspi-config in order to change your password and host name after you ssh the first time. 
+
+## Install Python3, Packages, and Scripts
+
 
 
 ## Ngrok
 
 
-### Flask_App Python Script
+
 
 
 ## Running the Flask_App File
